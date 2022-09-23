@@ -1,0 +1,18 @@
+:root {
+  --primary: #fe9967;
+  --secondary: #a7d08c;
+  --warning: #feeb75;
+
+  --gray-800: #606060;
+  --gray-900: #333;
+
+  --sm-box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  --md-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+  --md-bottom-box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+    rgba(0, 0, 0, 0.23) 0px 6px 6px;
+
+  --select-border: #fff;
+  --select-focus: rgb(255, 0, 76);
+  --select-arrow: var(--select-border);
+}

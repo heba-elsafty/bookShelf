@@ -1,0 +1,15 @@
+.BookShelfs {
+  .bookContaner {
+    display: flex;
+    flex-wrap: wrap;
+    margin-block: 2rem;
+  }
+
+  &__shelf {
+    &__icon {
+      width: 2rem;
+      margin-inline-end: 0.5rem;
+      vertical-align: middle;
+    }
+  }
+}

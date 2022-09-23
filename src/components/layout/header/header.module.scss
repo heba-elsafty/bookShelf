@@ -1,0 +1,20 @@
+.ComponentsLayoutHeader {
+  --bg-color: #f7f7f7;
+  background-color: var(--bg-color);
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  &__logo {
+    width: 2rem;
+  }
+  p {
+    color: var(--primary);
+    font-weight: bold;
+    margin-inline-start: 0.5rem;
+  }
+}

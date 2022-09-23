@@ -1,0 +1,52 @@
+.ChangeBookShelf {
+  position: relative;
+  display: grid;
+  grid-template-areas: "select";
+  align-items: center;
+  max-width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  padding: 0.25em 0.5em;
+  font-size: 1rem;
+  cursor: pointer;
+  justify-content: center;
+  background-image: linear-gradient(to top, var(--primary), var(--primary) 33%);
+  margin-left: auto;
+  right: 1rem;
+  top: -0.5rem;
+
+  select,
+  &::after {
+    grid-area: select;
+  }
+
+  // Custom arrow
+  &:not(.select--multiple)::after {
+    content: "";
+    justify-self: end;
+    width: 1em;
+    height: 0.7em;
+    background-color: var(--select-arrow);
+    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+  }
+
+  &__select {
+    appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+    z-index: 1;
+    color: var(--gray-800);
+    outline: none;
+    &::-ms-expand {
+      display: none;
+    }
+  }
+}

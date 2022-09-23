@@ -1,0 +1,29 @@
+.BookDetails {
+  box-shadow: var(--sm-box-shadow);
+  margin-inline-end: 1rem;
+  flex: 1 0 0%;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100%;
+  &__header {
+    background-color: rgb(254 235 117 / 15%);
+    height: 200px;
+    text-align: center;
+    padding-block: 1rem;
+    img {
+      width: auto;
+      height: 100%;
+    }
+  }
+  &__body {
+    padding: 1rem;
+    flex: 1 1 auto;
+  }
+
+  .bookContaner {
+    display: flex;
+    flex-wrap: wrap;
+    margin-block: 2rem;
+  }
+}

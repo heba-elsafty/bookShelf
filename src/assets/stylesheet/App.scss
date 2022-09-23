@@ -1,0 +1,49 @@
+@import "./helpers/variables";
+
+* {
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  color: var(--gray-900);
+}
+
+.container {
+  padding: 1rem;
+}
+
+img {
+  width: 100%;
+}
+
+.col-25 {
+  flex: 0 0 auto;
+  width: 25%;
+  margin-bottom: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+small {
+  color: var(--gray-900);
+  margin-block: 0.5rem;
+}
+
+button:disabled,
+button[disabled] {
+  pointer-events: none;
+  opacity: 0.5;
+}
