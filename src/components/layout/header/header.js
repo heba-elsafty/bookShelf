@@ -1,11 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logo from "../../../assets/images/logo.svg";
 import styles from './header.module.scss';
 
 const ComponentsLayoutHeader = () => (
   <div className={styles.ComponentsLayoutHeader}>
-    <img src={logo} alt="bookshlef-logo" className={styles.ComponentsLayoutHeader__logo} />
-    <p>bookshelf</p>
+    <Link to="/" className={styles.ComponentsLayoutHeader__logo}>
+      <img src={logo} alt="bookshlef-logo"  />
+      <p>bookshelf</p>
+    </Link>
   </div>
 );
 

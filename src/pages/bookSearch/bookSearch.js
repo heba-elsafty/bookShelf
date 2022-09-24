@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { DebounceInput } from 'react-debounce-input';
 import { ToastContainer, toast } from 'react-toastify';
 
+import BookDetails from '../../components/bookDetails/bookDetails';
+//images~
 import arrowBackIcon from "../../assets/images/icons/back-arrow.svg";
 import bookFindIcon from "../../assets/images/icons/book-find.svg";
 import sorryIcon from "../../assets/images/icons/apology.svg";
+//Api
 import * as BooksAPI from "../../BooksAPI.js";
-import BookDetails from '../../components/bookDetails/bookDetails';
-
+//css
 import styles from './bookSearch.module.scss';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -21,17 +23,27 @@ const BookSearch = () => {
     const query = event.target.value.trim();
     setQuery(query);
     if (query) {
-      BooksAPI.search(query, 20)
-        .then(books => {
-          if (books.length > 0) {
-            setBooks(books);
-          } else {
-            setBooks([]);
-            setError(true)
+      BooksAPI.search(query, 100)
+        .then(response => {
+          if (response.error) {
+            setError(true);
+            setBooks([])
           }
-        });
-    } else {
-      setBooks([]);
+          // eslint-disable-next-line array-callback-return
+          response.map((filteredBooks) => {
+            let bookOnShelf = books.find((b) => b.id === filteredBooks.id);
+            if (bookOnShelf) {
+              filteredBooks.shelf = bookOnShelf.shelf;
+            } else {
+              filteredBooks.shelf = 'none';
+            }
+          })
+          setBooks(response);
+
+        }).catch(e => {
+          setError(true);
+          setBooks([])
+        })
     }
   };
 
@@ -46,6 +58,16 @@ const BookSearch = () => {
         console.log(e);
       })
   }
+
+  useEffect(() => {
+    BooksAPI.getAll()
+      .then((res) => {
+        setBooks(res)
+      })
+      .catch((e) => {
+        console.log(e);
+      })
+  }, [])
 
   return (
     <div className={styles.BookSearch}>
@@ -68,7 +90,7 @@ const BookSearch = () => {
       <div className={`container ${styles.BookSearch__result}`}>
         <div>
           {
-            books.length > 0 ? (
+            query && books.length > 0 ? (
               <>
                 <div className={styles.BookSearch__result__total}>
                   <h2>Search returned <strong>{books.length}</strong> books </h2>
@@ -76,23 +98,24 @@ const BookSearch = () => {
                 <div className={styles.bookContaner}>
                   {
                     books.map((book) => (
-                      <BookDetails key={book.id} book={book} changeBookShelf={updateShelf} isDefaultValueNone />
+                      <BookDetails key={book.id} book={book} changeBookShelf={updateShelf} isDefaultValueNone={book.shelf ? book.shelf : "none"} />
                     ))
                   }
                 </div>
               </>
             ) : (
-              !error ?
-                <div className={styles.BookSearch__findBook}>
-                  <img src={bookFindIcon} alt="bookfind icon" />
-                  <h4>please write in the search input  to find the book that you need</h4>
-                </div> : (
-                  <div className={styles.BookSearch__notFindBook}>
-                    <img src={sorryIcon} alt="sorry icon" />
-                    <h4>
-                      Your search didn't find a book. Try again with a different
-                      keyword.
-                    </h4>
+              error && query ?
+                <div className={styles.BookSearch__notFindBook}>
+                  <img src={sorryIcon} alt="sorry icon" />
+                  <h4>
+                    Your search didn't find a book. Try again with a different
+                    keyword.
+                  </h4>
+                </div>
+                : (
+                  <div className={styles.BookSearch__findBook}>
+                    <img src={bookFindIcon} alt="bookfind icon" />
+                    <h4>please write in the search input  to find the book that you need</h4>
                   </div>
                 )
             )

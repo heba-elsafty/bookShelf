@@ -26,4 +26,12 @@
     flex-wrap: wrap;
     margin-block: 2rem;
   }
+
+  &__link {
+    text-decoration: none;
+    transition: all 1s ease;
+    &:hover{
+      box-shadow: var(--md-box-shadow);
+    }
+  }
 }

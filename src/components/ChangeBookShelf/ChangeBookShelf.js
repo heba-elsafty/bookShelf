@@ -1,10 +1,14 @@
 import PropTypes from 'prop-types';
 import styles from './ChangeBookShelf.module.scss';
 
-const ChangeBookShelf = ({ book, onChangeBookShelf, isNone }) => {
+const ChangeBookShelf = ({ book, onChangeBookShelf }) => {
   return (
     <div className={styles.ChangeBookShelf}>
-      <select className={styles.ChangeBookShelf__select} onChange={(e) => onChangeBookShelf(book, e.target.value)} defaultValue={isNone ? "none" : book.shelf}>
+      <select
+        className={styles.ChangeBookShelf__select}
+        onChange={(e) => onChangeBookShelf(book, e.target.value)}
+        defaultValue={book.shelf}
+      >
         <option disabled> move to...</option>
         <option value="currentlyReading">
           Currently Reading
@@ -23,10 +27,6 @@ ChangeBookShelf.propTypes = {
   book: PropTypes.shape({
     shelf: PropTypes.string
   })
-};
-
-ChangeBookShelf.defaultProps = {
-  isNone: false
 };
 
 export default ChangeBookShelf;

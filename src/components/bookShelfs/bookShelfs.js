@@ -5,7 +5,7 @@ import styles from './bookShelfs.module.scss';
 import currentlyReadingIcon from "../../assets/images/icons/reading-books.svg";
 import readIcon from "../../assets/images/icons/book.svg";
 import wantToReadIcon from "../../assets/images/icons/wanted-poster.svg";
-import BookDetails from '../../components/bookDetails/bookDetails';
+import BookDetails from '../bookDetails/bookDetails';
 
 const BookShelfs = ({
   books,

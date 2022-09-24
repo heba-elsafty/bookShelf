@@ -10,11 +10,14 @@
   right: 0;
   z-index: 10;
   &__logo {
-    width: 2rem;
-  }
-  p {
-    color: var(--primary);
-    font-weight: bold;
-    margin-inline-start: 0.5rem;
+    display: flex;
+    img {
+      width: 2rem;
+    }
+    p {
+      color: var(--primary);
+      font-weight: bold;
+      margin-inline-start: 0.5rem;
+    }
   }
 }
