@@ -12,23 +12,23 @@ const BookDetails = ({
 }) => (
   <div className='col-25'>
     <div className={styles.BookDetails}>
-      <Link to={`/books/${book.id}`} className={styles.BookDetails__link}>
-        <div className={`${styles.BookDetails__header}`}>
-          <img src={book.imageLinks ? book.imageLinks.thumbnail : defaultBookImage} alt={`${book.title}-img`} />
-          <ChangeBookShelf book={book} onChangeBookShelf={changeBookShelf} />
-        </div>
+      <div className={`${styles.BookDetails__header}`}>
+        <img src={book.imageLinks ? book.imageLinks.thumbnail : defaultBookImage} alt={`${book.title}-img`} />
+        <ChangeBookShelf book={book} onChangeBookShelf={changeBookShelf} />
+      </div>
 
-        <div className={`${styles.BookDetails__body}`}>
+      <div className={`${styles.BookDetails__body}`}>
+        <Link to={`/books/${book.id}`} className={styles.BookDetails__link}>
           <h3>{book.title}</h3>
-          {
-            book.authors && book.authors.length > 0 ? (
-              book.authors.map((author) => (
-                <small key={author}>{author}</small>
-              ))
-            ) : null
-          }
-        </div>
-      </Link>
+        </Link>
+        {
+          book.authors && book.authors.length > 0 ? (
+            book.authors.map((author) => (
+              <small key={author}>{author}</small>
+            ))
+          ) : null
+        }
+      </div>
     </div>
   </div>
 );

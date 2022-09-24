@@ -30,8 +30,13 @@
   &__link {
     text-decoration: none;
     transition: all 1s ease;
-    &:hover{
-      box-shadow: var(--md-box-shadow);
+    z-index: 9;
+    &:hover {
+      transition: all 1s ease;
+      h3 {
+        text-decoration: underline;
+        color: var(--primary);
+      }
     }
   }
 }
