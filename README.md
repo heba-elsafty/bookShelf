@@ -1,7 +1,7 @@
  # A Bookshelf
 
 ## Demo
-![Bookshelf project in action](https://github.com/heba-elsafty/bookshelf/bookshelf-site.gif)
+![](https://github.com/heba-elsafty/bookshelf//blob/master/bookshelf-site.gif)
 
 ## Instructions
 
