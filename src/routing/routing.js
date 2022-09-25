@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 
-import BookSearch from "../pages/BookSearch/BookSearch";
+import BookSearch from "../pages/BookSearch/bookSearch";
 import MyRead from "../pages/MyRead/MyRead";
 import Book from "../pages/Book/Book";
 
