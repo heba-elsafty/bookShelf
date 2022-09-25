@@ -1,7 +1,7 @@
  # A Bookshelf
 
 ## Demo
-![Bookshelf project in action] (https://user-images.githubusercontent.com/13819612/192146688-1d530e9c-bcb3-4e29-ad79-2462420238ef.webm)
+![Bookshelf project in action] (https://github.com/bookshelf/bookshelf-site.gif)
 
 ## Instructions
 
